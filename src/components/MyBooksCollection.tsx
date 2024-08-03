@@ -76,7 +76,7 @@ export const MyBooksCollection = () => {
                             </div>
                             <div className="grid grid-cols-3 max-xl:grid-cols-3 gap-7 mt-10">
                                 {myBooks.map((book) => (
-                                    <div className="text-center shadow-md shadow-gray-400 rounded-[29px] bg-cream">
+                                    <div key={book.id} className="text-center shadow-md shadow-gray-400 rounded-[29px] bg-cream">
                                         {
                                             editOn ? (
                                                 <button 
