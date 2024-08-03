@@ -100,7 +100,7 @@ export const MyBooksCollection = () => {
                                                 src={book.volumeInfo.imageLinks?.thumbnail} 
                                                 alt={book.volumeInfo.title} 
                                                 className="aspect-auto"
-                                                width={200}
+                                                width={150}
                                                 height={100}
                                             />
                                             <div className="flex flex-col justify-center items-center mx-5 w-[80%] text-darkbrown">
@@ -124,7 +124,7 @@ export const MyBooksCollection = () => {
                                     <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM174.6 384.1c-4.5 12.5-18.2 18.9-30.7 14.4s-18.9-18.2-14.4-30.7C146.9 319.4 198.9 288 256 288s109.1 31.4 126.6 79.9c4.5 12.5-2 26.2-14.4 30.7s-26.2-2-30.7-14.4C328.2 358.5 297.2 336 256 336s-72.2 22.5-81.4 48.1zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
                                 </svg> */}
 
-                                <Image src="/face-frown-regular 1.png" alt="sad face" width={200} height={100}/>
+                                <Image src="/face-frown-regular 1.png" alt="sad face" width={100} height={100}/>
                                 <h1 className="text-3xl max-md:text-2xl font-bold pt-6">There are no books in your collection yet</h1>
                                 <p className="text-[1.5rem] max-md:text-[1.3rem] pt-2">Let&apos;s change that!</p>
                                 <Link href="/home"><button className="px-4 py-2 text-xl  rounded-xl bg-lightbrown text-white hover:bg-mediumbrown shadow-lg shadow-slate-400 hover:shadow-none font-bold mt-8 transition ease-in-out">Add Books to my Collection</button></Link>

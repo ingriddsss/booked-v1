@@ -178,7 +178,7 @@ export default function BookInfoPage({ params }) {
                                     const ratingValue = i+1;
 
                                     return (
-                                    <label key={_.id}>
+                                    <label key={i}>
                                         <input 
                                             type="radio"
                                             name="rating"
@@ -227,7 +227,7 @@ export default function BookInfoPage({ params }) {
                         >
                             {[...Array(numSets)].map((_, index) => {
                                 return (
-                                    <div key={_.id} className="flex flex-row justify-center items-center w-full gap-5">
+                                    <div key={index} className="flex flex-row justify-center items-center w-full gap-5">
                                     {/* <div key={index} className="numSets py-8 px-5 rounded-lg"> */}
                                         {/* <div className="flex justify-center items-center w-[100%]">
                                             <select
