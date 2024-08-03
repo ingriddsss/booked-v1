@@ -153,7 +153,7 @@ export default function BookInfoPage({ params }) {
     return(
         <section className="bg-lightcream h-screen">
             <Navbar />
-            <section className="font-dmsans flex justify-center items-center gap-20 max-lg:flex-col mt-20 max-md:my-20 max-sm:my-18 h-fit">
+            <section className="font-dmsans flex justify-center items-center gap-20 max-lg:flex-col mt-20 max-md:my-20 max-sm:my-18 h-fit w-[95%]">
                 {/* <button onClick={debug}>debug</button> */}
 
                 {selectedBook ? (

@@ -38,7 +38,7 @@ const dmsans = mainfont({
 })
 
 export const metadata: Metadata = {
-  title: "booked",
+  title: "Booked",
   description: "your personal literary hub",
 };
 
