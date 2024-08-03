@@ -4,6 +4,7 @@ import { useMyBooks } from "@/context/MyBooksContext";
 import { toast } from "sonner";
 import { CiCircleRemove } from "react-icons/ci";
 import { FiEdit3 } from "react-icons/fi";
+import Image from "next/image";
 
 import Link from "next/link";
 
@@ -57,9 +58,9 @@ export const MyBooksCollection = () => {
                                 </button>
 
                                 <div className="flex justify-center items-center">
-                                    <img className="max-w-[110px] w-[20%] min-w-[80px]" src="/frame_curl_design.png" alt="design"/>
+                                    <Image className="max-w-[110px] w-[20%] min-w-[80px]" src="/frame_curl_design.png" alt="design"/>
                                     <h2 className="font-margaret text-darkbrown text-center text-[1.8rem] font-bold">My Book Collection</h2>
-                                    <img className="max-w-[110px] w-[20%] min-w-[80px] scale-x-[-1]" src="/frame_curl_design.png" alt="design"/>
+                                    <Image className="max-w-[110px] w-[20%] min-w-[80px] scale-x-[-1]" src="/frame_curl_design.png" alt="design"/>
                                 </div>
 
 
@@ -95,7 +96,7 @@ export const MyBooksCollection = () => {
                                         >   
                                             
 
-                                            <img 
+                                            <Image 
                                                 src={book.volumeInfo.imageLinks?.thumbnail} 
                                                 alt={book.volumeInfo.title} 
                                                 className="aspect-auto"
@@ -121,7 +122,7 @@ export const MyBooksCollection = () => {
                                     <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM174.6 384.1c-4.5 12.5-18.2 18.9-30.7 14.4s-18.9-18.2-14.4-30.7C146.9 319.4 198.9 288 256 288s109.1 31.4 126.6 79.9c4.5 12.5-2 26.2-14.4 30.7s-26.2-2-30.7-14.4C328.2 358.5 297.2 336 256 336s-72.2 22.5-81.4 48.1zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
                                 </svg> */}
 
-                                <img src="/face-frown-regular 1.png"/>
+                                <Image src="/face-frown-regular 1.png" alt="sad face"/>
                                 <h1 className="text-3xl max-md:text-2xl font-bold pt-6">There are no books in your collection yet</h1>
                                 <p className="text-[1.5rem] max-md:text-[1.3rem] pt-2">Let's change that!</p>
                                 <Link href="/home"><button className="px-4 py-2 text-xl  rounded-xl bg-lightbrown text-white hover:bg-mediumbrown shadow-lg shadow-slate-400 hover:shadow-none font-bold mt-8 transition ease-in-out">Add Books to my Collection</button></Link>

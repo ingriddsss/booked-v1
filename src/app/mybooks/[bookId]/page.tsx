@@ -10,6 +10,7 @@ import { IoAddCircle } from "react-icons/io5";
 import { FiEdit3 } from "react-icons/fi";
 import { toast } from "sonner";
 import local from "next/font/local";
+import Image from "next/image";
 
 interface Book {
     id: string;
@@ -158,7 +159,7 @@ export default function BookInfoPage({ params }) {
                 {selectedBook ? (
                 <>
                     <div className="left flex flex-col justify-center items-center w-[30%] max-lg:w-[70%] mb-28 max-lg:mb-0">
-                        <img 
+                        <Image 
                             src={selectedBook?.volumeInfo.imageLinks.thumbnail} 
                             alt={selectedBook.volumeInfo.title} 
                             className="w-[200px]" 
@@ -175,7 +176,7 @@ export default function BookInfoPage({ params }) {
                                     const ratingValue = i+1;
 
                                     return (
-                                    <label>
+                                    <label key={_.id}>
                                         <input 
                                             type="radio"
                                             name="rating"
@@ -201,7 +202,7 @@ export default function BookInfoPage({ params }) {
                     <div className="right flex flex-col justify-center items-center py-8 mb-24 rounded-lg max-w-[550px] w-[40%] max-lg:w-[80%] max-md:w-[85%]">
                         <div className="flex justify-between items-center mb-10 w-[95%]">
                             <div className="flex justify-center items-center">
-                                <img className="w-[70px]" src="/frame_curl_design.png" alt="design"/>
+                                <Image className="w-[70px]" src="/frame_curl_design.png" alt="design"/>
                                 <p className="font-margaret font-bold text-[1.6rem] pl-4 text-darkbrown">My Notes</p>
                             </div>
                             <div className="flex justify-center items-center">
@@ -215,7 +216,7 @@ export default function BookInfoPage({ params }) {
                                     />
                                 </button>
                                 
-                            <img className="w-[70px] scale-x-[-1] ml-4" src="/frame_curl_design.png" alt="design"/>
+                            <Image className="w-[70px] scale-x-[-1] ml-4" src="/frame_curl_design.png" alt="design"/>
                             </div>
                         </div>
                         
@@ -224,7 +225,7 @@ export default function BookInfoPage({ params }) {
                         >
                             {[...Array(numSets)].map((_, index) => {
                                 return (
-                                    <div className="flex flex-row justify-center items-center w-full gap-5">
+                                    <div key={_.id} className="flex flex-row justify-center items-center w-full gap-5">
                                     {/* <div key={index} className="numSets py-8 px-5 rounded-lg"> */}
                                         {/* <div className="flex justify-center items-center w-[100%]">
                                             <select
