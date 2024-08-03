@@ -64,7 +64,8 @@ const Home: React.FC = () => {
 
             <div className="flex justify-center items-center">
                 <Image className="max-w-[110px] w-[20%] min-w-[80px]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
-                <h1 className='font-margaret text-3xl text-darkbrown'>Let's look for a book!</h1>
+                {/* <h1 className='font-margaret text-3xl text-darkbrown'>Let's look for a book!</h1> */}
+                <h1 className='font-margaret text-3xl text-darkbrown'>Let&apos;s look for a book!</h1>
                 <Image className="max-w-[110px] w-[20%] min-w-[80px] scale-x-[-1]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
             </div>
 

@@ -126,7 +126,7 @@ export const MyBooksCollection = () => {
 
                                 <Image src="/face-frown-regular 1.png" alt="sad face" width={200} height={100}/>
                                 <h1 className="text-3xl max-md:text-2xl font-bold pt-6">There are no books in your collection yet</h1>
-                                <p className="text-[1.5rem] max-md:text-[1.3rem] pt-2">Let's change that!</p>
+                                <p className="text-[1.5rem] max-md:text-[1.3rem] pt-2">Let&apos;s change that!</p>
                                 <Link href="/home"><button className="px-4 py-2 text-xl  rounded-xl bg-lightbrown text-white hover:bg-mediumbrown shadow-lg shadow-slate-400 hover:shadow-none font-bold mt-8 transition ease-in-out">Add Books to my Collection</button></Link>
                             </div>
                         </div>
