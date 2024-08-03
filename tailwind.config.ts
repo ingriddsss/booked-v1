@@ -7,11 +7,28 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      margaret: ["var(--font-margaret)"],
+      dmsans: ["var(--font-dmsans)"]
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        //background
+        lightcream: "#FCF1ED", 
+        //card background
+        cream: "#FFE9E2",
+        //input
+        creaminput: "#FFF5F0",
+        //unhovered button
+        lightbrown: "#C9A197",
+        //hovered button
+        mediumbrown: "#A37A72",
+        //text
+        darkbrown: "#573B37",
+        //star
+        gold: "#EBB426",
+        //notes background
+        peachy: "#F0CCC1",
       },
     },
   },
