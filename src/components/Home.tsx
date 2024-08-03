@@ -63,9 +63,9 @@ const Home: React.FC = () => {
 
 
             <div className="flex justify-center items-center">
-                <Image className="max-w-[110px] w-[20%] min-w-[80px]" src="/frame_curl_design.png" alt="design"/>
+                <Image className="max-w-[110px] w-[20%] min-w-[80px]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
                 <h1 className='font-margaret text-3xl text-darkbrown'>Let's look for a book!</h1>
-                <Image className="max-w-[110px] w-[20%] min-w-[80px] scale-x-[-1]" src="/frame_curl_design.png" alt="design"/>
+                <Image className="max-w-[110px] w-[20%] min-w-[80px] scale-x-[-1]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
             </div>
 
             <div className="flex mt-6 w-[80%] justify-center">
@@ -101,7 +101,7 @@ const Home: React.FC = () => {
                         key={book.id}
                         className="flex items-center justify-start my-4 py-5 px-5 shadow-md shadow-gray-400 rounded-md bg-cream text-darkbrown"
                     >
-                        <Image src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} />
+                        <Image src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} width={200} height={100}/>
                         <div className="flex flex-col mx-5 w-[100%]">
                             <p className="text-lg text-wrap font-bold">{book.volumeInfo.title}</p>
                             <p> - {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown Author'}</p>

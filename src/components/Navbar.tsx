@@ -5,7 +5,7 @@ export const Navbar = () => {
     return(
         <div className="flex justify-between items-center w-[65%] max-w-[1000px] max-sm:w-[80%] m-auto pt-6">
             <Link href="/home">
-                <Image className="w-[25%] min-w-[200px] max-w-[225px]" src="/booked-full.png" alt="booked logo"/>
+                <Image className="w-[25%] min-w-[200px] max-w-[225px]" src="/booked-full.png" alt="booked logo" width={200} height={100}/>
             </Link>
             <Link 
                 href='/mybooks'

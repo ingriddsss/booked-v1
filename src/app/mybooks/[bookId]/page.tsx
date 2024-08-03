@@ -42,7 +42,7 @@ export default function BookInfoPage({ params }) {
         if (savedRating) {
             setRating(parseInt(savedRating));
         }
-    }, []);
+    }, [params.bookId]);
 
     const handleRatingChange = (newRating: number) => {
         setRating(newRating);
@@ -163,6 +163,8 @@ export default function BookInfoPage({ params }) {
                             src={selectedBook?.volumeInfo.imageLinks.thumbnail} 
                             alt={selectedBook.volumeInfo.title} 
                             className="w-[200px]" 
+                            width={200}
+                            height={100}
                         />
                         <div className="book-info text-center text-darkbrown">
                             <h3 className="text-2xl font-bold pt-7">{selectedBook.volumeInfo.title}</h3>
@@ -202,7 +204,7 @@ export default function BookInfoPage({ params }) {
                     <div className="right flex flex-col justify-center items-center py-8 mb-24 rounded-lg max-w-[550px] w-[40%] max-lg:w-[80%] max-md:w-[85%]">
                         <div className="flex justify-between items-center mb-10 w-[95%]">
                             <div className="flex justify-center items-center">
-                                <Image className="w-[70px]" src="/frame_curl_design.png" alt="design"/>
+                                <Image className="w-[70px]" src="/frame_curl_design.png" alt="design" width={70} height={50}/>
                                 <p className="font-margaret font-bold text-[1.6rem] pl-4 text-darkbrown">My Notes</p>
                             </div>
                             <div className="flex justify-center items-center">
@@ -216,7 +218,7 @@ export default function BookInfoPage({ params }) {
                                     />
                                 </button>
                                 
-                            <Image className="w-[70px] scale-x-[-1] ml-4" src="/frame_curl_design.png" alt="design"/>
+                            <Image className="w-[70px] scale-x-[-1] ml-4" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
                             </div>
                         </div>
                         
