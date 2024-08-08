@@ -49,7 +49,8 @@ const Home: React.FC = () => {
 
 
     // const debug = () => {
-    //     console.log(myBooks);
+    //     // console.log(myBooks);
+    //     console.log(searchedBooks);
     // }
 
     return (
@@ -65,22 +66,22 @@ const Home: React.FC = () => {
             <div className="flex justify-center items-center">
                 <Image className="max-w-[110px] w-[20%] min-w-[80px]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
                 {/* <h1 className='font-margaret text-3xl text-darkbrown'>Let's look for a book!</h1> */}
-                <h1 className='font-margaret text-3xl text-darkbrown'>Let&apos;s look for a book!</h1>
+                <h1 className='font-margaret text-3xl text-darkbrown text-center'>Let&apos;s look for a book!</h1>
                 <Image className="max-w-[110px] w-[20%] min-w-[80px] scale-x-[-1]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
             </div>
 
-            <div className="flex mt-6 w-[80%] justify-center">
+            <div className="flex max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:gap-4 mt-6 w-[80%] justify-center">
                 <input
                     type="text"
                     value={searchQuery}
                     onKeyDown={handleKeyDown}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="placeholder-darkbrown placeholder-opacity-75 px-2 border-2 border-none bg-creaminput rounded-md outline-none text-darkbrown shadow-sm shadow-slate-400 max-w-[400px] w-[85%]"
+                    className="placeholder-darkbrown placeholder-opacity-75 px-2 max-sm:py-2 border-2 border-none bg-creaminput rounded-md outline-none text-darkbrown shadow-sm shadow-slate-400 max-sm:w-[95%] max-w-[400px] w-[85%]"
                     placeholder="Search for a book..."
                 />
 
                 <button
-                    className="font-bold tracking-wide text-white bg-lightbrown hover:bg-mediumbrown py-2 px-5 rounded-lg ml-6 shadow-md shadow-slate-400 hover:shadow-none transition ease-in-out"
+                    className="font-bold tracking-wide text-white bg-lightbrown hover:bg-mediumbrown py-2 px-5 rounded-lg ml-6 max-sm:m-0 shadow-md shadow-slate-400 hover:shadow-none transition ease-in-out"
                     onClick={handleSearch}
                     disabled={isLoading}
                 >
@@ -100,31 +101,32 @@ const Home: React.FC = () => {
                  searchedBooks.map((book) => (
                     <div
                         key={book.id}
-                        className="flex items-center justify-start my-4 py-5 px-5 shadow-md shadow-gray-400 rounded-md bg-cream text-darkbrown"
+                        className="flex max-sm:flex-col items-center justify-start my-4 py-5 px-5 shadow-md shadow-gray-400 rounded-md bg-cream text-darkbrown"
                     >
-                        <Image src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} width={200} height={100}/>
-                        <div className="flex flex-col mx-5 w-[100%]">
-                            <p className="text-lg text-wrap font-bold">{book.volumeInfo.title}</p>
-                            <p> - {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown Author'}</p>
+                        <Image className="max-sm:my-3" src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} width={200} height={100}/>
+                        
+                            <div className="flex flex-col mx-5 w-[100%] max-sm:text-center py-6">
+                                <p className="text-lg text-wrap font-bold">{book.volumeInfo.title}</p>
+                                <p> - {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown Author'}</p>
+                            </div>
+                            
+                        <div className='flex max-sm:flex-col-reverse items-center justify-center'>
+                                {myBooks.some((myBook) => myBook.id === book.id) ? (
+                                    <button className="cursor-not-allowed font-bold text-darkbrown" disabled>
+                                        {/* <p className='text-[1.8rem]'>&#10003;</p> */}
+                                        <IoCheckmarkCircle 
+                                            size={20}
+                                        />
+                                    </button>
+                                ) : (
+                                    <button title="Add to My Books Collection" onClick={() => handleAddBook(book)} className="ml-auto hover:cursor-pointer hover:font-bold transition ease-in-out text-center">
+                                        {/* <p className='text-[1.8rem]'>+</p> */}
+                                        <IoIosAdd 
+                                            size={25}
+                                        />
+                                    </button>
+                                )}
                         </div>
-                        {/* <button onClick={() => handleAddBook(book)} className="ml-auto hover:cursor-pointer hover:font-bold transition ease-in-out">
-                            <p className='text-[1.8rem]'>+</p>
-                        </button> */}
-                        {myBooks.some((myBook) => myBook.id === book.id) ? (
-                            <button className="cursor-not-allowed font-bold text-darkbrown" disabled>
-                                {/* <p className='text-[1.8rem]'>&#10003;</p> */}
-                                <IoCheckmarkCircle 
-                                    size={20}
-                                />
-                            </button>
-                        ) : (
-                            <button title="Add to My Books Collection" onClick={() => handleAddBook(book)} className="ml-auto hover:cursor-pointer hover:font-bold transition ease-in-out">
-                                {/* <p className='text-[1.8rem]'>+</p> */}
-                                <IoIosAdd 
-                                    size={25}
-                                />
-                            </button>
-                        )}
                     </div>
                 ))}
             </div>

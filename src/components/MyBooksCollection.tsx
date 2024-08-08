@@ -50,7 +50,7 @@ export const MyBooksCollection = () => {
                 {
                     myBooks.length > 0 ? (
                         <>  
-                            <div className="flex justify-between items-center w-[80%] m-auto">
+                            <div className="flex max-lg:flex-col justify-between items-center w-[80%] m-auto">
                                 <button className="invisible">
                                     <FiEdit3
                                         size={20}
@@ -65,7 +65,7 @@ export const MyBooksCollection = () => {
 
 
                                 <button 
-                                    className=""
+                                    className="max-lg:mt-5"
                                     onClick={toggleEdit}
                                 >
                                     <FiEdit3
@@ -74,7 +74,7 @@ export const MyBooksCollection = () => {
                                     />
                                 </button>
                             </div>
-                            <div className="grid grid-cols-3 max-xl:grid-cols-3 gap-7 mt-10">
+                            <div className="grid grid-cols-3 max-xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-7 mt-10">
                                 {myBooks.map((book) => (
                                     <div key={book.id} className="text-center shadow-md shadow-gray-400 rounded-[29px] bg-cream">
                                         {

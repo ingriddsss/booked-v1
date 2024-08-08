@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
+
+//Google Books API
 interface Book {
     id: string;
     volumeInfo: {
@@ -13,6 +15,14 @@ interface Book {
         };
     };
 }
+
+//Open Library API
+interface Book {
+    docs: {
+
+    }
+}
+
 
 interface MyBooksContextType {
     searchedBooks: Book[];
@@ -38,6 +48,9 @@ export const MyBooksProvider: React.FC<MyBooksProviderProps> = ({ children }) =>
             // Simulated fetch for demonstration
             const apiKey = 'AIzaSyBbkK6AjYDa5QAgQ_9my1_dQs6KXEwBl1g';
             const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`);
+            // const response = await fetch(`https://openlibrary.org/search.json?q=${query}`)
+            // const response = await fetch(`https://openlibrary.org/search.json?q=the+lord+of+the+rings`)
+
             const data = await response.json();
             if (data.items) {
                 setSearchedBooks(data.items.map((item: any) => ({
