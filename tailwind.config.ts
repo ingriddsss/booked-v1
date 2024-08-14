@@ -29,6 +29,10 @@ const config: Config = {
         gold: "#EBB426",
         //notes background
         peachy: "#F0CCC1",
+        //delete
+        auburn: "#A83A2A",
+        //delete hover
+        darkauburn: "#7E2316",
       },
     },
   },

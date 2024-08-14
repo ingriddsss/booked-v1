@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { CiCircleRemove } from "react-icons/ci";
 import { FiEdit3 } from "react-icons/fi";
 import Image from "next/image";
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
 
 import Link from "next/link";
 
@@ -46,7 +47,7 @@ export const MyBooksCollection = () => {
                 debug
             </button> */}
             
-            <div className="w-[60%] m-auto">
+            <div className="w-[60%] max-md:w-[90%] m-auto">
                 {
                     myBooks.length > 0 ? (
                         <>  
@@ -57,7 +58,7 @@ export const MyBooksCollection = () => {
                                     />
                                 </button>
 
-                                <div className="flex justify-center items-center">
+                                <div className="flex justify-center items-center max-md:w-full">
                                     <Image className="max-w-[110px] w-[20%] min-w-[80px]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
                                     <h2 className="font-margaret text-darkbrown text-center text-[1.8rem] font-bold">My Book Collection</h2>
                                     <Image className="max-w-[110px] w-[20%] min-w-[80px] scale-x-[-1]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
@@ -79,14 +80,40 @@ export const MyBooksCollection = () => {
                                     <div key={book.id} className="text-center shadow-md shadow-gray-400 rounded-[29px] bg-cream">
                                         {
                                             editOn ? (
-                                                <button 
-                                                    className="mt-8 text-red-500 hover:text-red-700"
-                                                    onClick={(e) => { e.stopPropagation(); removeBook(book.id); addToast(); }}
-                                                >
-                                                    <CiCircleRemove 
-                                                        size={25}
-                                                    />
-                                                </button>
+                                                <AlertDialog.Root>
+                                                    <AlertDialog.Trigger asChild>
+                                                        <button 
+                                                            className="mt-8 text-red-500 hover:text-red-700"
+                                                            // onClick={(e) => { e.stopPropagation(); removeBook(book.id); addToast(); }}
+                                                            onClick={(e) => { e.stopPropagation();}}
+                                                        >
+                                                            <CiCircleRemove 
+                                                                size={25}
+                                                            />
+                                                        </button>
+                                                    </AlertDialog.Trigger>
+                                                    <AlertDialog.Portal>
+                                                    <AlertDialog.Overlay className="AlertDialogOverlay" />
+                                                    <AlertDialog.Content className="AlertDialogContent font-dmsans bg-">
+                                                        <AlertDialog.Title className="AlertDialogTitle text-lg font-bold text-darkbrown">Are you sure you want to remove this book from your collection?</AlertDialog.Title>
+                                                        {/* <AlertDialog.Description className="AlertDialogDescription">
+                                                        This action cannot be undone. This will permanently delete your account and remove your
+                                                        data from our servers.
+                                                        </AlertDialog.Description> */}
+                                                        <div className="flex gap-3 justify-end mt-5">
+                                                        <AlertDialog.Cancel asChild>
+                                                            <button className="Button bg-creaminput hover:bg-cream py-1 px-2 rounded-lg hover:cursor-pointer text-darkbrown shadow-md shadow-slate-300 hover:shadow-none">Oops! No, keep it.</button>
+                                                        </AlertDialog.Cancel>
+                                                        <AlertDialog.Action asChild>
+                                                            <button 
+                                                                className="Button bg-auburn hover:bg-darkauburn hover:cursor-pointer py-1 px-2 rounded-lg text-lightcream shadow-md shadow-slate-300 hover:shadow-none" 
+                                                                onClick={(e) => removeBook(book.id)}
+                                                            >Yes, remove book.</button>
+                                                        </AlertDialog.Action>
+                                                        </div>
+                                                    </AlertDialog.Content>
+                                                    </AlertDialog.Portal>
+                                                </AlertDialog.Root>
                                             ) : null
                                         }
                                         <Link

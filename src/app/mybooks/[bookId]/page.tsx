@@ -3,14 +3,13 @@ import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { FaStar } from 'react-icons/fa';
 import { useMyBooks } from "@/context/MyBooksContext";
-// import { CiCircleRemove } from "react-icons/ci";
 import { FaDeleteLeft } from "react-icons/fa6";
-// import { IoAddCircleOutline } from "react-icons/io5";
 import { IoAddCircle } from "react-icons/io5";
 import { FiEdit3 } from "react-icons/fi";
 import { toast } from "sonner";
 import local from "next/font/local";
 import Image from "next/image";
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
 
 interface Book {
     id: string;
@@ -259,14 +258,41 @@ export default function BookInfoPage({ params }) {
                                     
                                     {
                                         editOn ? (
-                                            <button 
-                                                className="text-mediumbrown hover:text-darkbrown"
-                                                onClick={() => removeSet(index)}
-                                            >
-                                                <FaDeleteLeft 
-                                                    size={25}
-                                                />
-                                            </button>
+                                            
+
+                                            <AlertDialog.Root>
+                                            <AlertDialog.Trigger asChild>
+                                                <button 
+                                                    className="text-mediumbrown hover:text-darkbrown"
+                                                    // onClick={() => removeSet(index)}
+                                                >
+                                                    <FaDeleteLeft 
+                                                        size={25}
+                                                    />
+                                                </button>
+                                            </AlertDialog.Trigger>
+                                            <AlertDialog.Portal>
+                                            <AlertDialog.Overlay className="AlertDialogOverlay" />
+                                            <AlertDialog.Content className="AlertDialogContent font-dmsans bg-">
+                                                <AlertDialog.Title className="AlertDialogTitle text-lg font-bold text-darkbrown">Are you sure you want to delete this note?</AlertDialog.Title>
+                                                {/* <AlertDialog.Description className="AlertDialogDescription">
+                                                This action cannot be undone. This will permanently delete your account and remove your
+                                                data from our servers.
+                                                </AlertDialog.Description> */}
+                                                <div className="flex gap-3 justify-end mt-5">
+                                                <AlertDialog.Cancel asChild>
+                                                    <button className="Button bg-creaminput hover:bg-cream py-1 px-2 rounded-lg hover:cursor-pointer text-darkbrown shadow-md shadow-slate-300 hover:shadow-none">Oops! No, keep it.</button>
+                                                </AlertDialog.Cancel>
+                                                <AlertDialog.Action asChild>
+                                                    <button 
+                                                        className="Button bg-auburn hover:bg-darkauburn hover:cursor-pointer py-1 px-2 rounded-lg text-lightcream shadow-md shadow-slate-300 hover:shadow-none" 
+                                                        onClick={() => removeSet(index)}
+                                                    >Yes, delete note.</button>
+                                                </AlertDialog.Action>
+                                                </div>
+                                            </AlertDialog.Content>
+                                            </AlertDialog.Portal>
+                                            </AlertDialog.Root>
                                         ) : null
                                     }
                                     
