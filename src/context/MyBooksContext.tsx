@@ -16,7 +16,7 @@ interface Book {
     };
 }
 
-//Open Library API
+//Open Library API (pending)
 interface Book {
     docs: {
 
@@ -30,6 +30,9 @@ interface MyBooksContextType {
     setMyBooks: React.Dispatch<React.SetStateAction<Book[]>>;
     searchBooks: (query: string) => Promise<void>;
     addBook: (book: Book) => void;
+    searchHP: () => void;
+    searchGG: () => void;
+    searchHolly: () => void;
 }
 
 const MyBooksContext = createContext<MyBooksContextType | undefined>(undefined);
@@ -69,6 +72,19 @@ export const MyBooksProvider: React.FC<MyBooksProviderProps> = ({ children }) =>
         }
     };
 
+    const searchHP = () => {
+        searchBooks('Harry Potter');
+    }
+
+    const searchGG = () => {
+        searchBooks('The Great Gatsby');
+    }
+
+    const searchHolly = () => {
+        searchBooks('Holly by Stephen King')
+    }
+
+
     const addBook = (book: Book) => {
         if (!myBooks.some((b) => b.id === book.id)) {
             const updatedBooks = [...myBooks, book];
@@ -85,7 +101,7 @@ export const MyBooksProvider: React.FC<MyBooksProviderProps> = ({ children }) =>
     }, []);
 
     return (
-        <MyBooksContext.Provider value={{ searchedBooks, myBooks, setMyBooks,  searchBooks, addBook }}>
+        <MyBooksContext.Provider value={{ searchedBooks, myBooks, setMyBooks,  searchBooks, searchHP, searchGG, searchHolly, addBook }}>
             {children}
         </MyBooksContext.Provider>
     );

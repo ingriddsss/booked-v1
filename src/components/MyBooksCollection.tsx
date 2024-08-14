@@ -58,7 +58,7 @@ export const MyBooksCollection = () => {
                                     />
                                 </button>
 
-                                <div className="flex justify-center items-center max-md:w-full">
+                                <div className="flex justify-center items-center max-2xl:w-full">
                                     <Image className="max-w-[110px] w-[20%] min-w-[80px]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
                                     <h2 className="font-margaret text-darkbrown text-center text-[1.8rem] font-bold">My Book Collection</h2>
                                     <Image className="max-w-[110px] w-[20%] min-w-[80px] scale-x-[-1]" src="/frame_curl_design.png" alt="design" width={200} height={100}/>
@@ -77,7 +77,7 @@ export const MyBooksCollection = () => {
                             </div>
                             <div className="grid grid-cols-3 max-xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-7 mt-10">
                                 {myBooks.map((book) => (
-                                    <div key={book.id} className="text-center shadow-md shadow-gray-400 rounded-[29px] bg-cream">
+                                    <div key={book.id} className="text-center shadow-md shadow-mediumbrown rounded-[29px] bg-cream">
                                         {
                                             editOn ? (
                                                 <AlertDialog.Root>
@@ -102,11 +102,11 @@ export const MyBooksCollection = () => {
                                                         </AlertDialog.Description> */}
                                                         <div className="flex gap-3 justify-end mt-5">
                                                         <AlertDialog.Cancel asChild>
-                                                            <button className="Button bg-creaminput hover:bg-cream py-1 px-2 rounded-lg hover:cursor-pointer text-darkbrown shadow-md shadow-slate-300 hover:shadow-none">Oops! No, keep it.</button>
+                                                            <button className="Button bg-creaminput hover:bg-cream py-1 px-2 rounded-lg hover:cursor-pointer text-darkbrown shadow-md shadow-lightbrown hover:shadow-none">Oops! No, keep it.</button>
                                                         </AlertDialog.Cancel>
                                                         <AlertDialog.Action asChild>
                                                             <button 
-                                                                className="Button bg-auburn hover:bg-darkauburn hover:cursor-pointer py-1 px-2 rounded-lg text-lightcream shadow-md shadow-slate-300 hover:shadow-none" 
+                                                                className="Button bg-auburn hover:bg-darkauburn hover:cursor-pointer py-1 px-2 rounded-lg text-lightcream shadow-md shadow-lightbrown hover:shadow-none" 
                                                                 onClick={(e) => removeBook(book.id)}
                                                             >Yes, remove book.</button>
                                                         </AlertDialog.Action>
@@ -154,7 +154,7 @@ export const MyBooksCollection = () => {
                                 <Image src="/face-frown-regular 1.png" alt="sad face" width={100} height={100}/>
                                 <h1 className="text-3xl max-md:text-2xl font-bold pt-6">There are no books in your collection yet</h1>
                                 <p className="text-[1.5rem] max-md:text-[1.3rem] pt-2">Let&apos;s change that!</p>
-                                <Link href="/home"><button className="px-4 py-2 text-xl  rounded-xl bg-lightbrown text-white hover:bg-mediumbrown shadow-lg shadow-slate-400 hover:shadow-none font-bold mt-8 transition ease-in-out">Add Books to my Collection</button></Link>
+                                <Link href="/home"><button className="px-4 py-2 text-xl  rounded-xl bg-lightbrown text-white hover:bg-mediumbrown shadow-md shadow-mediumbrown hover:shadow-none font-bold mt-8 transition ease-in-out">Add Books to my Collection</button></Link>
                             </div>
                         </div>
                     )

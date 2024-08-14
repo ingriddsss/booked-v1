@@ -281,11 +281,11 @@ export default function BookInfoPage({ params }) {
                                                 </AlertDialog.Description> */}
                                                 <div className="flex gap-3 justify-end mt-5">
                                                 <AlertDialog.Cancel asChild>
-                                                    <button className="Button bg-creaminput hover:bg-cream py-1 px-2 rounded-lg hover:cursor-pointer text-darkbrown shadow-md shadow-slate-300 hover:shadow-none">Oops! No, keep it.</button>
+                                                    <button className="Button bg-creaminput hover:bg-cream py-1 px-2 rounded-lg hover:cursor-pointer text-darkbrown shadow-md shadow-lightbrown hover:shadow-none">Oops! No, keep it.</button>
                                                 </AlertDialog.Cancel>
                                                 <AlertDialog.Action asChild>
                                                     <button 
-                                                        className="Button bg-auburn hover:bg-darkauburn hover:cursor-pointer py-1 px-2 rounded-lg text-lightcream shadow-md shadow-slate-300 hover:shadow-none" 
+                                                        className="Button bg-auburn hover:bg-darkauburn hover:cursor-pointer py-1 px-2 rounded-lg text-lightcream shadow-md shadow-lightbrown hover:shadow-none" 
                                                         onClick={() => removeSet(index)}
                                                     >Yes, delete note.</button>
                                                 </AlertDialog.Action>

@@ -7,7 +7,7 @@ import { IoIosAdd } from "react-icons/io";
 import Image from "next/image";
 
 const Home: React.FC = () => {
-    const { searchedBooks, searchBooks, addBook, myBooks, setMyBooks } = useMyBooks();
+    const { searchedBooks, searchBooks, addBook, myBooks, setMyBooks, searchHP, searchGG, searchHolly } = useMyBooks();
     const [searchQuery, setSearchQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -76,17 +76,39 @@ const Home: React.FC = () => {
                     value={searchQuery}
                     onKeyDown={handleKeyDown}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="placeholder-darkbrown placeholder-opacity-75 px-2 max-sm:py-2 border-2 border-none bg-creaminput rounded-md outline-none text-darkbrown shadow-sm shadow-slate-400 max-sm:w-[95%] max-w-[400px] w-[85%]"
+                    className="placeholder-darkbrown placeholder-opacity-75 px-2 max-sm:py-2 border-2 border-none bg-creaminput rounded-md outline-none text-darkbrown shadow-sm shadow-mediumbrown max-sm:w-[95%] max-w-[400px] w-[85%]"
                     placeholder="Search for a book..."
                 />
 
                 <button
-                    className="font-bold tracking-wide text-white bg-lightbrown hover:bg-mediumbrown py-2 px-5 rounded-lg ml-6 max-sm:m-0 shadow-md shadow-slate-400 hover:shadow-none transition ease-in-out"
+                    className="font-bold tracking-wide text-white bg-lightbrown hover:bg-mediumbrown py-2 px-5 rounded-lg ml-6 max-sm:m-0 shadow-md shadow-mediumbrown hover:shadow-none transition ease-in-out"
                     onClick={handleSearch}
                     disabled={isLoading}
                 >
                     Search
                     {/* {isLoading ? 'Searching...' : 'Search'} */}
+                </button>
+            </div>
+
+            <p className='text-lg font-bold text-darkbrown mt-5 mb-3'>Suggested Searches</p>
+            <div className='bg-creaminput flex max-sm:flex-col justify-center items-center gap-4'>
+                <button
+                    className='text-darkbrown py-1 px-2 rounded-md text-center w-fit shadow-sm shadow-mediumbrown' 
+                    onClick={searchHP}
+                >
+                    <p>Harry Potter by J.K. Rowling</p>
+                </button>
+                <button
+                    className='text-darkbrown py-1 px-2 rounded-md text-center w-fit shadow-sm shadow-mediumbrown' 
+                    onClick={searchGG}
+                >
+                    <p>The Great Gatsby by F. Scott Fitzgerald</p>
+                </button>
+                <button
+                    className='text-darkbrown py-1 px-2 rounded-md text-center w-fit shadow-sm shadow-mediumbrown' 
+                    onClick={searchHolly}
+                >
+                    <p>Holly by Stephen King</p>
                 </button>
             </div>
 
